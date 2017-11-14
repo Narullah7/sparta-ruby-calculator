@@ -1,7 +1,44 @@
 # function for basic Calculator
 def basic_calc
-  puts "Hey there"
-  display_calculator
+  puts "Which operator would you like to use? '+', '-', '/' '*'"
+  operator = gets.chomp()
+
+  case operator
+  when "+"
+    puts "Choose your first number? "
+    num1 = gets.chomp()
+    puts "Choose your second number? "
+    num2 = gets.chomp()
+    sum = num1.to_f + num2.to_f
+    puts "Your answer is #{sum}"
+
+  when "-"
+    puts "Choose your first number? "
+    num1 = gets.chomp()
+    puts "Choose your second number? "
+    num2 = gets.chomp()
+    sum = num1.to_f - num2.to_f
+    puts "Your answer is #{sum}"
+
+  when "*"
+    puts "Choose your first number? "
+    num1 = gets.chomp()
+    puts "Choose your second number? "
+    num2 = gets.chomp()
+    sum = num1.to_f * num2.to_f
+    puts "Your answer is #{sum}"
+
+  when "/"
+    puts "Choose your first number? "
+    num1 = gets.chomp()
+    puts "Choose your second number? "
+    num2 = gets.chomp()
+    sum = num1.to_f / num2.to_f
+    puts "Your answer is #{sum}"
+  end
+
+
+  # display_calculator
 end
 # function for advanced Calculator
 # function for BMI Calculator
