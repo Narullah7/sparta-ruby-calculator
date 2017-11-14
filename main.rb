@@ -4,42 +4,46 @@ def basic_calc
   operator = gets.chomp()
 
   case operator
-  when "+"
-    puts "Choose your first number? "
-    num1 = gets.chomp()
-    puts "Choose your second number? "
-    num2 = gets.chomp()
-    sum = num1.to_f + num2.to_f
-    puts "Your answer is #{sum}"
-    clear()
-    display_calculator
+    when "+"
+      puts "Choose your first number? "
+      num1 = gets.chomp()
+      puts "Choose your second number? "
+      num2 = gets.chomp()
+      sum = num1.to_f + num2.to_f
+      puts "Your answer is #{sum}"
+      display_calculator
 
-  when "-"
-    puts "Choose your first number? "
-    num1 = gets.chomp()
-    puts "Choose your second number? "
-    num2 = gets.chomp()
-    sum = num1.to_f - num2.to_f
-    puts "Your answer is #{sum}"
-    display_calculator
+    when "-"
+      puts "Choose your first number? "
+      num1 = gets.chomp()
+      puts "Choose your second number? "
+      num2 = gets.chomp()
+      sum = num1.to_f - num2.to_f
+      puts "Your answer is #{sum}"
+      display_calculator
 
-  when "*"
-    puts "Choose your first number? "
-    num1 = gets.chomp()
-    puts "Choose your second number? "
-    num2 = gets.chomp()
-    sum = num1.to_f * num2.to_f
-    puts "Your answer is #{sum}"
-    display_calculator
+    when "*"
+      puts "Choose your first number? "
+      num1 = gets.chomp()
+      puts "Choose your second number? "
+      num2 = gets.chomp()
+      sum = num1.to_f * num2.to_f
+      puts "Your answer is #{sum}"
+      display_calculator
 
-  when "/"
-    puts "Choose your first number? "
-    num1 = gets.chomp()
-    puts "Choose your second number? "
-    num2 = gets.chomp()
-    sum = num1.to_f / num2.to_f
-    puts "Your answer is #{sum}"
-    display_calculator
+    when "/"
+      puts "Choose your first number? "
+      num1 = gets.chomp()
+      puts "Choose your second number? "
+      num2 = gets.chomp()
+      if (num2 == "0")
+        puts "Error, you cannot divide by 0"
+        display_calculator
+      elsif (num2 != 0)
+        sum = num1.to_f / num2.to_f
+        puts "Your answer is #{sum}"
+        display_calculator
+      end
   end
 end
 
@@ -78,33 +82,30 @@ def bmi_calc
   metric_imperial = gets.chomp()
 
   case metric_imperial
-  when "M"
-    puts "Please state you weight (kg)? "
-    weight = gets.chomp().to_f
-    puts "Please state your height (m)? "
-    height = gets.chomp().to_f
-    bmi = ((weight) / (height * height))
-    puts "Your BMI is: #{bmi.round(2)}"
-    display_calculator
+    when "M"
+      puts "Please state you weight (kg)? "
+      weight = gets.chomp().to_f
+      puts "Please state your height (m)? "
+      height = gets.chomp().to_f
+      bmi = ((weight) / (height * height))
+      puts "Your BMI is: #{bmi.round(2)}"
+      display_calculator
 
-  when "I"
-    puts "Please state your weight (lbs)? "
-    weight = gets.chomp().to_f
-    puts "Please state your height (inches)? "
-    height = gets.chomp().to_f
-    bmi = ( (weight * 703) / (height * height) )
-    puts "Your bmi is #{bmi.round(2)}"
-    display_calculator
+    when "I"
+      puts "Please state your weight (lbs)? "
+      weight = gets.chomp().to_f
+      puts "Please state your height (inches)? "
+      height = gets.chomp().to_f
+      bmi = ( (weight * 703) / (height * height) )
+      puts "Your bmi is #{bmi.round(2)}"
+      display_calculator
   end
 end
-
-
-
 
 #Create initial message and ask for user prompt
 def display_calculator
   puts "----Calculator----"
-  puts "Please select from the following Calculators. type 'B' for basic, 'A' for advanced and 'M for BMI'? "
+  puts "Please select from the following Calculators. type 'B' for basic, 'A' for advanced and 'M for BMI' alternatively type 'quit' to exit? "
   type_of_calc = gets.chomp()
   if (type_of_calc == "B")
     basic_calc
@@ -113,6 +114,5 @@ def display_calculator
   elsif (type_of_calc == "M")
     bmi_calc
   end
-
 end
 display_calculator
