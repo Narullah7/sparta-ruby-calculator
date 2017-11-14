@@ -73,6 +73,30 @@ def advanced_calc
 end
 
 # function for BMI Calculator
+def bmi_calc
+  puts "Please state whether you want to use the imperial 'I' or metric system 'M'? "
+  metric_imperial = gets.chomp()
+
+  case metric_imperial
+  when "M"
+    puts "Please state you weight (kg)? "
+    weight = gets.chomp().to_f
+    puts "Please state your height (m)? "
+    height = gets.chomp().to_f
+    bmi = ((weight) / (height * height))
+    puts "Your BMI is: #{bmi.round(2)}"
+    display_calculator
+
+  when "I"
+    puts "Please state your weight (lbs)? "
+    weight = gets.chomp().to_f
+    puts "Please state your height (inches)? "
+    height = gets.chomp().to_f
+    bmi = ( (weight * 703) / (height * height) )
+    puts "Your bmi is #{bmi.round(2)}"
+    display_calculator
+  end
+end
 
 
 
@@ -80,12 +104,14 @@ end
 #Create initial message and ask for user prompt
 def display_calculator
   puts "----Calculator----"
-  puts "Please select from the following. type 'B' for basic, 'A' for advanced and 'M for BMI'? "
+  puts "Please select from the following Calculators. type 'B' for basic, 'A' for advanced and 'M for BMI'? "
   type_of_calc = gets.chomp()
   if (type_of_calc == "B")
     basic_calc
   elsif (type_of_calc == "A")
     advanced_calc
+  elsif (type_of_calc == "M")
+    bmi_calc
   end
 
 end
